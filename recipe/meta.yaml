@@ -1,5 +1,5 @@
 {% set name = "ligo-raven" %}
-{% set version = "1.8" %}
+{% set version = "1.10" %}
 
 package:
   name: "{{ name|lower }}"
@@ -10,7 +10,7 @@ source:
   # so we build from the relevant git commit in the upstream repo.
   # Reported as: https://git.ligo.org/lscsoft/raven/issues/5
   git_url: https://git.ligo.org/lscsoft/raven.git
-  git_tag: 6d62f0b9f022ce644b995c379a86d153d5d051f4
+  git_tag: 7bcc36275d510d5c052d71baee1170b4375ff83c
 
 build:
   number: 0
@@ -26,7 +26,6 @@ requirements:
     - python >=3.6
     - h5py
     - healpy !=1.12.0
-    - lalsuite
     - ligo-common
     - ligo-gracedb >=2.0.0
     - ligo-segments
@@ -34,6 +33,7 @@ requirements:
     - lscsoft-glue
     - lxml
     - numpy >=1.14.5
+    - python-lal
     - scipy >=0.7.2
     - voeventlib >=1.2
 
