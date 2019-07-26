@@ -1,35 +1,32 @@
 {% set name = "ligo-raven" %}
-{% set version = "1.10" %}
+{% set version = "1.15" %}
 
 package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
 source:
-  # ligo-raven-1.8 on pypi only provides wheels, not a tarball,
-  # so we build from the relevant git commit in the upstream repo.
-  # Reported as: https://git.ligo.org/lscsoft/raven/issues/5
-  git_url: https://git.ligo.org/lscsoft/raven.git
-  git_tag: 7bcc36275d510d5c052d71baee1170b4375ff83c
+  url: https://git.ligo.org/lscsoft/raven/-/archive/v{{ version }}/raven-v{{ version }}.tar.gz
+  sha256: 39c45f154f4045f2f446477748db73be83cfdd95ac32312df7f987db3657f2bf
 
 build:
   number: 0
-  noarch: python
+  skip: true  # [win or py<35]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
     - setuptools
   run:
-    - python >=3.6
+    - python
     - h5py
     - healpy !=1.12.0
     - ligo-common
     - ligo-gracedb >=2.0.0
     - ligo-segments
-    - ligo.skymap
+    - ligo.skymap >=0.1.1
     - lscsoft-glue
     - lxml
     - numpy >=1.14.5
@@ -51,7 +48,7 @@ test:
 about:
   home: https://git.ligo.org/lscsoft/raven/
   dev_url: https://git.ligo.org/lscsoft/raven/
-  license: GPLv3+
+  license: GPL-3.0-or-later
   license_family: GPL
   license_file: COPYING
   summary: Low-latency coincidence search between external triggers and GW candidates
