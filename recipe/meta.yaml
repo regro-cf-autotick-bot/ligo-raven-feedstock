@@ -1,5 +1,5 @@
 {% set name = "ligo-raven" %}
-{% set version = "1.15" %}
+{% set version = "1.16" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/lscsoft/raven/-/archive/v{{ version }}/raven-v{{ version }}.tar.gz
-  sha256: 39c45f154f4045f2f446477748db73be83cfdd95ac32312df7f987db3657f2bf
+  sha256: c3f8f70d7f35ca19876bda27337a62884fc9ec759a326d6e1425b6b472de765a
 
 build:
   number: 0
@@ -16,6 +16,7 @@ build:
 
 requirements:
   host:
+    - pytest-runner
     - python
     - pip
     - setuptools
@@ -24,7 +25,7 @@ requirements:
     - h5py
     - healpy !=1.12.0
     - ligo-common
-    - ligo-gracedb >=2.0.0
+    - ligo-gracedb >=2.2.0
     - ligo-segments
     - ligo.skymap >=0.1.1
     - lscsoft-glue
