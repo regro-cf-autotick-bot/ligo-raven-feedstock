@@ -1,5 +1,5 @@
 {% set name = "ligo-raven" %}
-{% set version = "1.16" %}
+{% set version = "1.17" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/lscsoft/raven/-/archive/v{{ version }}/raven-v{{ version }}.tar.gz
-  sha256: c3f8f70d7f35ca19876bda27337a62884fc9ec759a326d6e1425b6b472de765a
+  sha256: 86273e432a61c217528dc199f0158f34a83647961cbb1493fc9a876f7280a49c
 
 build:
   number: 0
