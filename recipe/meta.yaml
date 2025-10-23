@@ -1,16 +1,16 @@
 {% set name = "ligo-raven" %}
-{% set version = "3.2" %}
+{% set version = "3.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5da733aa93047316863b01bdad8440c5548d30e15b73bdd22d6549e554975e98
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 846943483755d8aa9abbb64ace9732e21ce0f60ac0814110abc39833976837ac
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win or py<38]
 
